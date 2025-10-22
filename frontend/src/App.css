@@ -1,0 +1,65 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f0e6d2;
+  color: #333;
+}
+
+.journal-container {
+  width: 600px;
+  margin: 20px auto;
+  background-color: #fffaf0;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #e0c097;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid #c0a080;
+  cursor: pointer;
+}
+
+.entries {
+  margin-top: 20px;
+}
+
+.entry {
+  border: 1px solid #e0c097;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.entry .actions button {
+  margin-right: 5px;
+}
+
+.stats {
+  background-color: #fffaf0;
+  border: 2px solid #e0c097;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.stats ul {
+  padding-left: 20px;
+}
+
+.stats li {
+  margin-bottom: 5px;
+  font-style: italic;
+  color: #705040;
+}
+
+.auth {
+  width: 300px;
+  margin: 50px auto;
+  text-align: center;
+  background-color: #fffaf0;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #e0c097;
+}
