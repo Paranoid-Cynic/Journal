@@ -45,7 +45,11 @@ app.post("/api/signup", async (req, res) => {
     res.json({ message: "User created successfully" });
   } catch (err) {
     console.error("Signup Error:", err);
-    res.status(500).json({ error: "Server error" });
+    if (err.code === "SQLITE_CONSTRAINT") {
+      res.status(400).json({ error: "User already exists" });
+    } else {
+      res.status(500).json({ error: "Server error" });
+    }
   }
 });
 
@@ -53,7 +57,9 @@ app.post("/api/signup", async (req, res) => {
 app.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
   try {
-    const user = await db.get("SELECT * FROM users WHERE username = ?", [username]);
+    const user = await db.get("SELECT * FROM users WHERE username = ?", [
+      username,
+    ]);
     if (!user) return res.status(400).json({ error: "User not found" });
 
     const valid = await bcrypt.compare(password, user.password);
@@ -96,6 +102,43 @@ app.post("/api/entries", auth, async (req, res) => {
   }
 });
 
+// ✅ Update Entry
+app.put("/api/entries/:id", auth, async (req, res) => {
+  const { id } = req.params;
+  const { title, mood, content } = req.body;
+  try {
+    const result = await db.run(
+      "UPDATE entries SET title = ?, mood = ?, content = ? WHERE id = ? AND user_id = ?",
+      [title, mood, content, id, req.user.id]
+    );
+    if (result.changes === 0) {
+      return res.status(404).json({ error: "Entry not found" });
+    }
+    res.json({ message: "Entry updated successfully" });
+  } catch (err) {
+    console.error("Update Entry Error:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+// ✅ Delete Entry
+app.delete("/api/entries/:id", auth, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await db.run(
+      "DELETE FROM entries WHERE id = ? AND user_id = ?",
+      [id, req.user.id]
+    );
+    if (result.changes === 0) {
+      return res.status(404).json({ error: "Entry not found" });
+    }
+    res.json({ message: "Entry deleted successfully" });
+  } catch (err) {
+    console.error("Delete Entry Error:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 // ✅ Mood Stats
 app.get("/api/moods/stats", auth, async (req, res) => {
   try {
@@ -114,4 +157,6 @@ app.get("/api/moods/stats", auth, async (req, res) => {
 });
 
 // ✅ Start server
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);

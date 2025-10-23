@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+body {
+  font-family: "Press Start 2P", monospace;
+  background-color: #131a24;
+  color: #ff00ff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Press Start 2P", monospace;
+}
+
+.terminal-container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
+}
+
+.neon-text {
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+  animation: flicker 2s infinite alternate;
+}
+
+.neon-border {
+  border: 2px solid #ff00ff;
+  box-shadow: 0 0 10px #ff00ff, inset 0 0 10px rgba(255, 0, 255, 0.1);
+}
+
+.terminal-button {
+  background: #100438;
+  border: 2px solid #333333;
+  color: #ff00ff;
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.terminal-button:hover {
+  background: #ff00ff;
+  color: #100438;
+  box-shadow: 0 0 15px #ff00ff;
+  transform: scale(1.05);
+}
+
+.terminal-input {
+  background: #100438;
+  border: 2px solid #333333;
+  color: #ff00ff;
+  font-family: "Press Start 2P", monospace;
+  padding: 8px;
+  caret-color: #ff00ff;
+}
+
+.terminal-input:focus {
+  outline: none;
+  border-color: #ff00ff;
+  box-shadow: 0 0 10px #ff00ff;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.mood-hover {
+  transition: transform 0.3s ease;
+}
+
+.mood-hover:hover {
+  transform: scale(1.1);
+}
