@@ -16,7 +16,7 @@ function MoodSummary({ stats }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h3 className="text-lg text-neon-pink mb-4">MOOD SUMMARY (THIS MONTH)</h3>
+      <h3 className="text-lg text-white mb-4">MOOD SUMMARY (THIS MONTH)</h3>
       {stats.length === 0 ? (
         <p className="text-neon-pink">NO MOODS LOGGED YET.</p>
       ) : (
@@ -27,8 +27,8 @@ function MoodSummary({ stats }) {
               className="flex items-center justify-between bg-terminal-bg border border-terminal-border rounded-none px-4 py-2"
               whileHover={{ scale: 1.05 }}
             >
-              <span className="text-2xl text-neon-pink">{s.mood}</span>
-              <span className="font-semibold text-neon-pink">{s.count}</span>
+              <span className="text-2xl text-white">{s.mood}</span>
+              <span className="font-semibold text-white">{s.count}</span>
             </motion.div>
           ))}
           {mostCommonMood && (
@@ -38,9 +38,9 @@ function MoodSummary({ stats }) {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              <p className="text-neon-cyan">
+              <p className="text-neon-blue">
                 MOST COMMON MOOD:{" "}
-                <span className="text-neon-pink">{mostCommonMood.mood}</span>
+                <span className="text-white">{mostCommonMood.mood}</span>
               </p>
             </motion.div>
           )}

@@ -7,7 +7,7 @@
 body {
   font-family: "Press Start 2P", monospace;
   background-color: #131a24;
-  color: #ff00ff;
+  color: #ffffff;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -24,57 +24,40 @@ body {
 }
 
 .neon-text {
-  color: #ff00ff;
-  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
-  animation: flicker 2s infinite alternate;
+  color: #0099ff;
 }
 
 .neon-border {
-  border: 2px solid #ff00ff;
-  box-shadow: 0 0 10px #ff00ff, inset 0 0 10px rgba(255, 0, 255, 0.1);
+  border: 2px solid #c8c8c846;
 }
 
 .terminal-button {
-  background: #100438;
-  border: 2px solid #333333;
-  color: #ff00ff;
+  background: #0099ff;
+  border: none;
+  color: #000;
   font-family: "Press Start 2P", monospace;
-  font-size: 10px;
+  border-radius: 8px;
   padding: 8px 16px;
-  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.terminal-button:hover {
-  background: #ff00ff;
-  color: #100438;
-  box-shadow: 0 0 15px #ff00ff;
-  transform: scale(1.05);
-}
+
 
 .terminal-input {
   background: #100438;
   border: 2px solid #333333;
-  color: #ff00ff;
+  color: #c8c8c8;
   font-family: "Press Start 2P", monospace;
   padding: 8px;
-  caret-color: #ff00ff;
+  caret-color: #c8c8c8;
 }
 
 .terminal-input:focus {
   outline: none;
-  border-color: #ff00ff;
-  box-shadow: 0 0 10px #ff00ff;
+  border-color: #c8c8c8;
 }
 
-@keyframes flicker {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
+
 
 .mood-hover {
   transition: transform 0.3s ease;

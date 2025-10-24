@@ -14,7 +14,7 @@ module.exports = {
         },
         "dark-bg": "#131a24",
         "terminal-bg": "#131a24",
-        "terminal-border": "#333333",
+        "terminal-border": "#C8C8C8",
       },
       fontFamily: {
         pixel: ["'Press Start 2P'", "monospace"],

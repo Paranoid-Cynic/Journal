@@ -12,7 +12,7 @@ function JournalEntry({ entry, onEdit, onDelete, onView }) {
       onClick={() => setIsExpanded(!isExpanded)}
     >
       <div className="flex justify-between items-center">
-        <h2 className="text-lg text-neon-pink">{entry.title}</h2>
+        <h2 className="text-lg text-white">{entry.title}</h2>
         <div className="flex items-center space-x-2">
           <motion.button
             className="text-neon-cyan hover:text-neon-blue p-2 rounded-none hover:bg-terminal-bg"
