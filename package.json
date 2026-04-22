@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@firebase/auth": "^1.13.0",
+    "@firebase/firestore": "^4.14.0",
+    "firebase": "^12.12.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.3"
+  }
+}
